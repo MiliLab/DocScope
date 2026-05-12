@@ -51,9 +51,5 @@ DocScope is a benchmark for evaluating trustworthy long-document understanding. 
   author={Xiang Feng and Jiawei Zhou and Zhangfeng Huang and Kewei Wang and Shanshan Ye and Jinxin Hu and Zulong Chen and Yong Luo and Jing Zhang},
   journal={arXiv preprint arXiv:2605.08888},
   year={2026},
-  eprint={2605.08888},
-  archivePrefix={arXiv},
-  primaryClass={cs.CL},
-  url={https://arxiv.org/abs/2605.08888}
 }
 ```
