@@ -24,12 +24,16 @@ Trustworthy Long-Document Understanding
   <strong><sup>2</sup> Alibaba Group, Hangzhou, China</strong><br>
   <strong><sup>3</sup> Department of Electronic Engineering and Information Science,</strong><br>
   <strong>University of Science and Technology of China, China</strong><br>
-  <strong><sup>4</sup> AAII, School of Computer Science, University of Technology Sydney, Australia</strong>
+  <strong><sup>4</sup> Department of Machine Learning, Mohamed bin Zayed University of Artificial Intelligence, United Arab Emirates</strong>
 </p>
 
 <p align="center">
   <strong><sup>&dagger;</sup> Corresponding author, <sup>&Dagger;</sup> Project leader</strong>
 </p>
+
+## Overview
+
+DocScope is a benchmark for evaluating trustworthy long-document understanding. It tests whether multimodal large language models can produce verifiable reasoning trajectories over complete PDF documents, including evidence pages, grounded evidence regions, factual statements, and final answers.
 
 <p align="center">
   <img src="assets/fig1.png" alt="Overview of DocScope" width="100%">
@@ -38,3 +42,18 @@ Trustworthy Long-Document Understanding
 <p align="center">
   <strong>Figure 1.</strong> Overview of DocScope.
 </p>
+
+## Citation
+
+```bibtex
+@article{feng2026docscopebenchmarkingverifiablereasoning,
+  title={DocScope: Benchmarking Verifiable Reasoning for Trustworthy Long-Document Understanding},
+  author={Xiang Feng and Jiawei Zhou and Zhangfeng Huang and Kewei Wang and Shanshan Ye and Jinxin Hu and Zulong Chen and Yong Luo and Jing Zhang},
+  journal={arXiv preprint arXiv:2605.08888},
+  year={2026},
+  eprint={2605.08888},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL},
+  url={https://arxiv.org/abs/2605.08888}
+}
+```
