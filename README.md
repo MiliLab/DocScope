@@ -43,6 +43,11 @@ DocScope is a benchmark for evaluating trustworthy long-document understanding. 
   <strong>Figure 1.</strong> Overview of DocScope.
 </p>
 
+## Code and Data
+
+- **Code** — the evaluation pipeline (inference backends, page / bbox / fact / answer scorers, prompt templates) lives in [`code/`](code/). See [`code/README.md`](code/README.md) for installation, the end-to-end workflow, and per-script usage.
+- **Data** — the benchmark annotations (`benchmark.json`) and the source PDFs are hosted on Hugging Face at [`MiliLab/DocScope`](https://huggingface.co/datasets/MiliLab/DocScope). The `code/README.md` *Step 1 — Download Data* section shows the exact `snapshot_download` / `huggingface-cli` commands; place `benchmark.json` and `pdfs/` at the root of `code/` (the scripts default to looking there) and you are ready to run the full pipeline.
+
 ## Citation
 
 ```bibtex

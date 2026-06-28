@@ -1,0 +1,101 @@
+# Model registry for the DocScope inference pipeline.
+#
+# Each entry is a self-contained job spec consumed by run_infer.py.
+# Fill in api_key_env and base_url to match your own API provider.
+#
+# Fields:
+#   id          - unique identifier for this run (used as output filename stem)
+#   backend     - one of: claude | openai | gemini
+#   model       - model name as accepted by the provider API
+#   api_key_env - name of the environment variable holding your API key
+#   base_url    - provider API endpoint
+#   extra_args  - list of extra CLI flags passed to run_infer.py
+#                 supported: --dpi <int>  (default 72)
+#                            --max_pages <int>
+
+# ── Judge (for evaluation scoring) ───────────────────────────────────────────
+# Evaluation uses an OpenAI-compatible judge model.
+# Set the environment variable and base_url below to your judge endpoint.
+#
+# judge:
+#   model:       gpt-4o-mini   # keep this model for comparable results
+#   api_key_env: YOUR_JUDGE_API_KEY_ENV    # e.g. OPENAI_API_KEY
+#   base_url:    https://...               # your OpenAI-compatible judge endpoint
+
+# ── Defaults ──────────────────────────────────────────────────────────────────
+defaults:
+  benchmark:         benchmark.json
+  split:             test           # test | dev | (omit for all)
+  output_root:       results
+  infer_concurrency: 4
+
+# ── Models ────────────────────────────────────────────────────────────────────
+models:
+
+  # Claude family  (Anthropic API)
+  - id: claude-opus-4-7
+    backend: claude
+    model: claude-opus-4-7
+    api_key_env: ANTHROPIC_API_KEY
+    base_url: https://api.anthropic.com/v1/messages
+    extra_args: []
+
+  - id: claude-sonnet-4-5
+    backend: claude
+    model: claude-sonnet-4-5
+    api_key_env: ANTHROPIC_API_KEY
+    base_url: https://api.anthropic.com/v1/messages
+    extra_args: []
+
+  - id: claude-haiku-4-5
+    backend: claude
+    model: claude-haiku-4-5-20251001
+    api_key_env: ANTHROPIC_API_KEY
+    base_url: https://api.anthropic.com/v1/messages
+    extra_args: []
+
+  # Gemini family  (Google AI Studio)
+  - id: gemini-2.5-pro
+    backend: gemini
+    model: gemini-2.5-pro-preview-05-06
+    api_key_env: GEMINI_API_KEY
+    base_url: https://generativelanguage.googleapis.com/v1beta
+    extra_args: []
+
+  - id: gemini-2.5-flash
+    backend: gemini
+    model: gemini-2.5-flash-preview-04-17
+    api_key_env: GEMINI_API_KEY
+    base_url: https://generativelanguage.googleapis.com/v1beta
+    extra_args: []
+
+  - id: gemini-2.0-flash
+    backend: gemini
+    model: gemini-2.0-flash
+    api_key_env: GEMINI_API_KEY
+    base_url: https://generativelanguage.googleapis.com/v1beta
+    extra_args: []
+
+  # OpenAI family  (OpenAI API)
+  - id: gpt-4o
+    backend: openai
+    model: gpt-4o
+    api_key_env: OPENAI_API_KEY
+    base_url: https://api.openai.com/v1
+    extra_args: []
+
+  - id: gpt-4o-mini
+    backend: openai
+    model: gpt-4o-mini
+    api_key_env: OPENAI_API_KEY
+    base_url: https://api.openai.com/v1
+    extra_args: []
+
+  # OpenAI-compatible: any provider that speaks the OpenAI chat completions API
+  # Example below uses OpenRouter (https://openrouter.ai)
+  # - id: llama-4-maverick
+  #   backend: openai
+  #   model: meta-llama/llama-4-maverick
+  #   api_key_env: OPENROUTER_API_KEY
+  #   base_url: https://openrouter.ai/api/v1
+  #   extra_args: []
