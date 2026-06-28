@@ -144,14 +144,14 @@ python infer/run_infer.py \
 ```
 python infer/run_infer.py --help
 
-  --backend       claude | openai | gemini  (required)
-  --model         Model name/ID             (required)
-  --output        Output JSONL path         (required)
-  --benchmark     Path to benchmark.json    (default: benchmark.json)
-  --split         test | dev                (default: all)
-  --concurrency   Parallel workers          (default: 32)
-  --max_pages     Max pages per document    (default: 100)
-  --dpi           PDF render DPI            (default: 72)
+  --backend       claude | openai | gemini
+  --model         Model name/ID
+  --output        Output JSONL path
+  --benchmark     Path to benchmark.json
+  --split         test | dev
+  --concurrency   Parallel workers
+  --max_pages     Max pages per document
+  --dpi           PDF render DPI
   --base_url      Override API base URL
   --api_key_env   Env var name for API key
 ```
