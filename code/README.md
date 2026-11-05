@@ -57,7 +57,7 @@ bash scripts/run_eval.sh <model_id> --prepare-only
 
 Both pipelines default to the test split. `--limit N` selects the first N questions before inference and is intended for smoke tests. Version, split and limit have separate output directories. `run.json` records data revision/hash, code version, model and judge configuration. Configuration changes require a different output root. API keys are not written to the manifest.
 
-For the camera-ready definitions and archived main-table calculator, see [camera-ready evaluation](eval/camera_ready/README.md).
+For the camera-ready metric definitions, see [camera-ready evaluation](eval/camera_ready/README.md).
 
 ## Offline tests
 
