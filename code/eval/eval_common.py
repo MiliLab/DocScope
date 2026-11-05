@@ -141,11 +141,11 @@ class BenchEntry:
 
     def facts_on_page(self, page: int) -> list[dict]:
         ev_ids = {e["local_id"] for e in self.evidences_on_page(page) if e.get("local_id")}
-        return [f for f in self.facts if f.get("evidence_local_id") in ev_ids]
+        return [f for f in self.facts if set(f.get("evidence_local_ids") or [f.get("evidence_local_id")]) & ev_ids]
 
     def facts_off_page(self, page: int) -> list[dict]:
         ev_ids_on = {e["local_id"] for e in self.evidences_on_page(page) if e.get("local_id")}
-        return [f for f in self.facts if f.get("evidence_local_id") not in ev_ids_on]
+        return [f for f in self.facts if not (set(f.get("evidence_local_ids") or [f.get("evidence_local_id")]) & ev_ids_on)]
 
 
 def load_benchmark_index(path: Path | str) -> dict[str, BenchEntry]:

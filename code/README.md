@@ -1,3 +1,5 @@
+> **Camera-ready metrics:** See [evaluation implementation and verified table reproduction](eval/camera_ready/README.md). The original pipeline below reports legacy diagnostics.
+
 # DocScope Benchmark
 
 A document question answering benchmark requiring fine-grained visual evidence localization in real-world PDFs.
