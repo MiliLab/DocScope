@@ -61,4 +61,4 @@ DocScope is a benchmark for evaluating trustworthy long-document understanding. 
 
 ## Camera-ready update
 
-The [dataset](https://huggingface.co/datasets/MiliLab/DocScope) now contains 1,123 questions with 847 additional evidence regions. See [camera-ready metric calculation](code/eval/camera_ready/README.md) for the published definitions and reproducible aggregation for all 18 models.
+The [dataset](https://huggingface.co/datasets/MiliLab/DocScope) now contains 1,123 questions with 847 additional evidence regions. See [camera-ready metric calculation](code/eval/camera_ready/README.md) for the published metric definitions and aggregation implementation.

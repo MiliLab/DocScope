@@ -1,4 +1,4 @@
-> **Camera-ready metrics:** See [evaluation implementation and verified table reproduction](eval/camera_ready/README.md). The original pipeline below reports legacy diagnostics.
+> **Camera-ready metrics:** See [camera-ready evaluation implementation](eval/camera_ready/README.md). The original pipeline below reports legacy diagnostics.
 
 # DocScope Benchmark
 

@@ -2,16 +2,6 @@
 
 The released benchmark contains 1,123 questions (729 test, 394 dev), with 847 additional evidence regions. Download `benchmark.json` from https://huggingface.co/datasets/MiliLab/DocScope.
 
-## Verify the published table without API calls
-
-From `code/`:
-
-```bash
-python3 eval/camera_ready/aggregate_counts.py
-```
-
-This checks all nine metrics for all 18 models against `reference_metrics.json`. `reference_counts.jsonl.gz` contains audited counts for the 678 answerable test questions per model. Accuracy uses the released overall correct/total counts (729 questions including unanswerable questions). This reproduces aggregation from saved judgments; it does not rerun the judges.
-
 ## Full aggregation from frozen judge artifacts
 
 `calculate.py` is the original main-table aggregation implementation, with configurable root/output paths and relocation of frozen result paths:
