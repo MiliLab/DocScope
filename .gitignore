@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+code/results/
+code/page_cache/
+code/pdfs/
+code/benchmark.json

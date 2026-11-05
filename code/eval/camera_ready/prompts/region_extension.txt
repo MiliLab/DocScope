@@ -1,0 +1,12 @@
+
+
+# Additional output: individual predicted-box validity
+Keep ALL original GOLD-union evaluation instructions and the original "items" array unchanged. ADD a "predictions" array to the same top-level JSON object. This extends the original output format; it does not replace or modify the original GOLD judgments.
+For each PRED[j], evaluate THAT predicted box ALONE against each same-page GOLD region, applying the SAME structural rules and covered/imprecise/not_covered criteria above. Do not borrow coverage from other predicted boxes for these individual judgments. A single red box is PRED[1] even if its image label says PRED.
+Return exactly one entry for each p1..pN, with:
+- id: "p<j>", the 1-based input prediction index.
+- label: best individual coverage label over all GOLD regions; covered > imprecise > not_covered.
+- matches: all GOLD regions individually judged covered or imprecise by this prediction, each {"gold_id":"g<i>","label":"covered"|"imprecise"}. If none, return []. Do not omit weaker matches when another GOLD has a stronger match: these links are needed for separately filtering alternative evidence sets.
+- reason: one concise reason for this individual prediction's judgment.
+An unmatched prediction has label="not_covered" and matches=[]. This is evidence-coverage validity under the original rules, not an additional tightness or IoU requirement. All original GOLD outputs still use the UNION of red boxes.
+Return {"items":[...original schema...],"predictions":[{"id":"p1","label":"covered","matches":[{"gold_id":"g1","label":"covered"}],"reason":"..."}]} as a single JSON object, with no markdown or commentary.

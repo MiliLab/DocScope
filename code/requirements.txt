@@ -1,0 +1,6 @@
+openai>=1.0
+requests
+PyYAML
+Pillow
+PyMuPDF
+huggingface_hub
