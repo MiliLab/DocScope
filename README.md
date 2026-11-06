@@ -12,9 +12,9 @@ Trustworthy Long-Document Understanding
   <strong><em>Kewei Wang</em></strong><sup>3</sup><br>
   <strong><em>Shanshan Ye</em></strong><sup>4</sup>,
   <strong><em>Jinxin Hu</em></strong><sup>2</sup>,
-  <strong><em>Zulong Chen</em></strong><sup>2,&dagger;</sup>,
-  <strong><em>Yong Luo</em></strong><sup>1,&dagger;</sup>,
-  <strong><em>Jing Zhang</em></strong><sup>1,&dagger;,&Dagger;</sup>
+  <strong><em>Zulong Chen</em></strong><sup>2,*</sup>,
+  <strong><em>Yong Luo</em></strong><sup>1,*</sup>,
+  <strong><em>Jing Zhang</em></strong><sup>1,*,&dagger;</sup>
 </p>
 
 <p align="center">
@@ -22,18 +22,23 @@ Trustworthy Long-Document Understanding
   <strong>and Hubei Key Laboratory of Multimedia and Network Communication Engineering,</strong><br>
   <strong>Wuhan University, China</strong><br>
   <strong><sup>2</sup> Alibaba Group, Hangzhou, China</strong><br>
-  <strong><sup>3</sup> Department of Electronic Engineering and Information Science,</strong><br>
-  <strong>University of Science and Technology of China, China</strong><br>
+  <strong><sup>3</sup> Independent Researcher</strong><br>
   <strong><sup>4</sup> Department of Machine Learning, Mohamed bin Zayed University of Artificial Intelligence, United Arab Emirates</strong>
 </p>
 
 <p align="center">
-  <strong><sup>&dagger;</sup> Corresponding author, <sup>&Dagger;</sup> Project leader</strong>
+  <strong><sup>*</sup> Corresponding author, <sup>&dagger;</sup> Project leader</strong>
+</p>
+
+<p align="center">
+  <a href="https://openreview.net/forum?id=V55GtaUSsR">NeurIPS 2026 Evaluations and Datasets Track · Poster</a>
 </p>
 
 ## Overview
 
-DocScope is a benchmark for evaluating trustworthy long-document understanding. It tests whether multimodal large language models can produce verifiable reasoning trajectories over complete PDF documents, including evidence pages, grounded evidence regions, factual statements, and final answers.
+DocScope evaluates the verifiability of reasoning trajectories in long-document question answering. Given a complete PDF document and a question, a model produces a reasoning chain and a final answer, together with evidence pages, supporting evidence regions, and relevant factual statements. A four-stage evaluation protocol assesses page localization, region grounding, fact extraction, and answer verification, with Complete@Correct measuring evidence-chain completeness among correctly answered, answerable questions.
+
+The benchmark contains 1,123 questions from 273 documents, with human-annotated hierarchical evidence supplemented by alternative supporting evidence. The camera-ready study evaluates 6 proprietary models, 12 open-weight models, and 5 document-understanding systems. Among the 18 general models, Complete@Correct reaches at most 38.3%, showing that correct answers can still lack complete, verifiable evidence chains.
 
 <p align="center">
   <img src="assets/fig1.png" alt="Overview of DocScope" width="100%">
@@ -61,4 +66,4 @@ DocScope is a benchmark for evaluating trustworthy long-document understanding. 
 
 ## Camera-ready update
 
-The [dataset](https://huggingface.co/datasets/MiliLab/DocScope) now contains 1,123 questions with 847 additional evidence regions. See [camera-ready metric calculation](code/eval/camera_ready/README.md) for the published metric definitions and aggregation implementation.
+The [dataset](https://huggingface.co/datasets/MiliLab/DocScope) contains 1,123 questions across 273 documents, with 729 test questions and 394 development questions. The camera-ready release adds 847 alternative evidence regions and removes one counting question without localized supporting evidence. See [camera-ready metric calculation](code/eval/camera_ready/README.md) for the published metric definitions and aggregation implementation.
